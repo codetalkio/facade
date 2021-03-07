@@ -9,16 +9,28 @@ Facade is a Rust-based HTTP transformation layer to seamlessly convert REST call
 - [ ] Support overriding specific URLs for specific HTTP verbs
 - [ ] Support easy transformation into a GraphQL request
 - [ ] Support easy transformation of GraphQL response data into expected REST output
-- [ ] Be easily testable
+- [ ] Be easily testable (e.g. make sure it's easy to check a route got directed to the right match)
 
 
 ## Resources
 
-- [warp](https://github.com/seanmonstar/warp) is used as the HTTP server ([docs](https://docs.rs/warp/0.3.0/warp/))
-- [warp-reverse-proxy](https://github.com/danielSanchezQ/warp-reverse-proxy) for proxying requests
-- [reqwest](https://github.com/seanmonstar/reqwest) is used as the HTTP client
+- [hyper](https://docs.rs/crate/hyper) for managing HTTP requests
+- [routerify](https://github.com/routerify/routerify) to manage routes in hyper
+- [anyhow](https://docs.rs/anyhow/) for nice error handling
+- [log](https://docs.rs/log/) and [fern](https://docs.rs/fern) for logging
+- [chrono](https://docs.rs/chrono/) for time handling
+- [hyper-rustls](https://docs.rs/hyper-rustls) for handling HTTPS in hyper
+- [httpbin: A simple HTTP Request & Response Service.](http://httpbin.org) is very useful for testing
+- [cargo-watch](https://crates.io/crates/cargo-watch) for developing with `cargo dev` (install via `cargo install cargo-watch`)
+
+Potentially:
+- [warp](https://github.com/seanmonstar/warp) as a higher-level alternative to hyper
+- [warp-reverse-proxy](https://github.com/danielSanchezQ/warp-reverse-proxy) is a warp filter for easy reverse proxying
+- [reqwest](https://github.com/seanmonstar/reqwest) is a high-level HTTP client
 
 
 Some blog posts:
 - https://blog.logrocket.com/creating-a-rest-api-in-rust-with-warp/
 - https://blog.joco.dev/posts/warp_auth_server_tutorial
+- [Live coding an HTTP reverse proxy in Rust](https://www.youtube.com/watch?v=FcHYQMRfGWw)
+- [benchmark of different web frameworks](https://github.com/routerify/routerify-benchmark)
