@@ -113,6 +113,8 @@ fn router() -> Router<Body, anyhow::Error> {
         .unwrap()
 }
 
+// TODO: Rewrite this to sub-router and mutate headers etc in middleware.
+// Check out https://github.com/routerify/routerify/blob/master/examples/scoped_router.rs
 mod proxy {
     use super::*;
 
