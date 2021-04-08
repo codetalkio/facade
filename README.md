@@ -1,5 +1,5 @@
 # Facade
-> When you need to keep pretending you are a REST API, but you're really not
+> When you need to pretend you are a REST API, but you're really not
 
 Facade is a Rust-based HTTP transformation layer to seamlessly convert REST calls into GraphQL calls for piecemeal API migrations.
 
@@ -11,6 +11,34 @@ Facade is a Rust-based HTTP transformation layer to seamlessly convert REST call
 - [ ] Support easy transformation of GraphQL response data into expected REST output
 - [ ] Be easily testable (e.g. make sure it's easy to check a route got directed to the right match)
 
+
+## Implementation Goal
+
+First off, we'll need to implement some test servers for REST and for GraphQL.
+
+After this, we'll need a couple of cases:
+- Passthrough paths that are not overridden
+- A direct transformation from REST<->GraphQL
+- An advanced transformation from REST<->GraphQL which processes the data
+
+
+We can set up a couple of REST endpoints:
+- `GET /api/v1/uuid` returns a UUID
+- `GET /api/v1/me` returns a JSON object `{ data: { username: "Ariel", ... } }`
+
+And a GraphQL schema:
+```graphql
+type User {
+  username: String!
+}
+
+Query {
+  me: User!
+  uuid: String!
+}
+```
+
+TODO: Make the above setup a bit more advanced.
 
 ## Resources
 
@@ -32,5 +60,5 @@ Potentially:
 Some blog posts:
 - https://blog.logrocket.com/creating-a-rest-api-in-rust-with-warp/
 - https://blog.joco.dev/posts/warp_auth_server_tutorial
-- [Live coding an HTTP reverse proxy in Rust](https://www.youtube.com/watch?v=FcHYQMRfGWw)
+- [Live coding an HTTP reverse proxy in Rust](https://www.youtube.com/watch?v=FcHYQMRfGWw) (and [gist](https://gist.github.com/snoyberg/35a661fff527692d09675ef540c7c1eb) of the code)
 - [benchmark of different web frameworks](https://github.com/routerify/routerify-benchmark)
