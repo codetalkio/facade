@@ -1,2 +1,4 @@
 [alias]
 dev = "watch --exec run"
+generate-sdl = "test -- --ignored generate_graphql_sdl"
+test-nocapture = "test -- --nocapture"

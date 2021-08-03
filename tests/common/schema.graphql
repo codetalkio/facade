@@ -1,0 +1,20 @@
+type Me {
+	username: String!
+	email: String!
+}
+type Query {
+	"""
+	A simple resolver that returns a UUID V4.
+	"""
+	generateUuid: Uuid!
+	"""
+	The current users' details.
+	"""
+	me: Me!
+}
+type Uuid {
+	uuid: String!
+}
+schema {
+	query: Query
+}

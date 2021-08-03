@@ -1,0 +1,12 @@
+query MeQuery {
+  me {
+    username
+    email
+  }
+}
+
+query GenerateUuidQuery {
+  generateUuid {
+    uuid
+  }
+}
