@@ -3,6 +3,12 @@
 
 Facade is a Rust-based HTTP transformation layer to seamlessly convert REST calls into GraphQL calls for piecemeal API migrations.
 
+**Quick Start**
+- `cargo build`: Build the project
+- `cargo dev`: Run local development server (requires cargo-watch)
+- `cargo generate-sdl`: Generate a new schema.graphql (in tests/common/)
+- `cargo test-nocapture`: Run tests but do not hide output
+
 **Goals:**
 
 - [ ] Seamlessly proxy any HTTP requests through, keeping headers etc intact

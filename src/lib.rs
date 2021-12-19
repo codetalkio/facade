@@ -30,7 +30,7 @@ async fn home_handler(_req: Request<Body>) -> Result<Response<Body>> {
 // A handler for "/users/:userId" page.
 async fn user_handler(req: Request<Body>) -> Result<Response<Body>> {
     let user_id = req.param("userId").unwrap();
-    Ok(Response::new(Body::from(format!("Hello {}", user_id))))
+    Ok(Response::new(Body::from(format!("Hello {}\n", user_id))))
 }
 
 /// Set up the logging service.
