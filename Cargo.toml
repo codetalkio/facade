@@ -18,24 +18,34 @@ split-debuginfo = "unpacked"
 
 [profile.release]
 opt-level = 3
-lto = "fat" # Performs "fat" LTO which attempts to perform optimizations across all crates within the dependency graph.
+# Performs "fat" LTO which attempts to perform optimizations across all crates within the dependency graph.
+lto = "fat"
 
 [dependencies]
-tokio = { version = "1.5.0", features = ["full"] }
-hyper = { version = "0.14.5", features = ["full"] }
+# Async.
+tokio = { version = "1.8.2", features = ["full"] }
+# HTTP and Routing.
+hyper = { version = "0.14.10", features = ["full"] }
 hyper-rustls = { version = "0.22.1" }
 routerify = { version = "2.2.0" }
-anyhow = { version = "1.0.40" }
+# Error handling.
+anyhow = { version = "1.0.42" }
+# Logging.
 log = { version = "0.4.14" }
 fern = { version = "0.6.0" }
 chrono = { version = "0.4.19" }
-serde = { version = "1.0.125", features = ["derive"] }
+
+# Handling JSON.
+serde = { version = "1.0.126", features = ["derive"] }
 serde_json = { version = "1.0.64" }
 
 [dev-dependencies]
-wiremock = "0.5"
+# Mock HTTP clients.
+wiremock = "0.5.6"
+# GraphQL server and client used for testing.
 async-graphql = "2.9.9"
-graphql_client = { version = "0.9.0" }
+graphql_client = { version = "0.10.0" }
 uuid = { version = "0.8.2", features = ["serde", "v4"] }
+# Easily set up consts initalized at runtime.
 lazy_static = { version = "1.4.0" }
 once_cell = { version = "1.8.0" }
