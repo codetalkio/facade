@@ -14,4 +14,4 @@ RUN rustup default nightly \
   && wget https://github.com/ryankurte/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz \
   && tar -xf cargo-binstall-x86_64-unknown-linux-musl.tgz \
   && mv cargo-binstall /usr/local/bin/cargo-binstall \
-  && cargo binstall cargo-watch
+  && cargo binstall --no-confirm cargo-watch
