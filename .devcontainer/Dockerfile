@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${VARIANT}
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-# Setup common cargo utilities.
-RUN cargo install cargo-binstall \
+# Switch to nightly and setup common cargo utilities.
+RUN rustup default nightly \
+  && cargo install cargo-binstall \
   && cargo binstall cargo-watch

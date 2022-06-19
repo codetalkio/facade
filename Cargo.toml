@@ -2,7 +2,7 @@
 name = "facade"
 version = "0.1.0"
 authors = ["Christian Kjaer Laustsen <ckl@codetalk.io>"]
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "facade"
