@@ -1,7 +1,8 @@
-use async_graphql::{
-    DeserializerError, EmptyMutation, EmptySubscription, Object, Request, Schema, SimpleObject,
-    Variables,
-};
+// use async_graphql::{
+//     DeserializerError, EmptyMutation, EmptySubscription, Object, Request, Schema, SimpleObject,
+//     Variables,
+// };
+use async_graphql::*;
 use graphql_client::GraphQLQuery;
 use graphql_client::QueryBody;
 use once_cell::sync::Lazy;
@@ -73,7 +74,7 @@ struct Me {
     schema_path = "tests/common/schema.graphql",
     query_path = "tests/common/queries.graphql",
     response_derives = "Debug",
-    variables_derives = "Debug,Serialize"
+    variables_derives = "Debug"
 )]
 pub struct MeQuery;
 
@@ -82,6 +83,6 @@ pub struct MeQuery;
     schema_path = "tests/common/schema.graphql",
     query_path = "tests/common/queries.graphql",
     response_derives = "Debug",
-    variables_derives = "Debug,Serialize"
+    variables_derives = "Debug"
 )]
 pub struct GenerateUuidQuery;

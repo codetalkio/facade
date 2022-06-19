@@ -23,29 +23,29 @@ lto = "fat"
 
 [dependencies]
 # Async.
-tokio = { version = "1.8.2", features = ["full"] }
+tokio = { version = "1.19.2", features = ["full"] }
 # HTTP and Routing.
-hyper = { version = "0.14.10", features = ["full"] }
-hyper-rustls = { version = "0.22.1" }
-routerify = { version = "2.2.0" }
+hyper = { version = "0.14.19", features = ["full"] }
+hyper-rustls = { version = "0.23.0" }
+routerify = { version = "3.0.0" }
 # Error handling.
-anyhow = { version = "1.0.42" }
+anyhow = { version = "1.0.58" }
 # Logging.
-log = { version = "0.4.14" }
-fern = { version = "0.6.0" }
+log = { version = "0.4.17" }
+fern = { version = "0.6.1" }
 chrono = { version = "0.4.19" }
 
 # Handling JSON.
-serde = { version = "1.0.126", features = ["derive"] }
-serde_json = { version = "1.0.64" }
+serde = { version = "1.0.137", features = ["derive"] }
+serde_json = { version = "1.0.81" }
 
 [dev-dependencies]
 # Mock HTTP clients.
-wiremock = "0.5.6"
+wiremock = "0.5.13"
 # GraphQL server and client used for testing.
-async-graphql = "2.9.9"
+async-graphql = "4.0.2"
 graphql_client = { version = "0.10.0" }
-uuid = { version = "0.8.2", features = ["serde", "v4"] }
+uuid = { version = "1.1.2", features = ["serde", "v4"] }
 # Easily set up consts initalized at runtime.
 lazy_static = { version = "1.4.0" }
-once_cell = { version = "1.8.0" }
+once_cell = { version = "1.12.0" }

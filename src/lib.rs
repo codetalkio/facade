@@ -1,9 +1,6 @@
 use crate::types::*;
 use anyhow::*;
-use hyper::{
-    client::{connect::dns::GaiResolver, HttpConnector},
-    Body, Client, Request, Response, StatusCode,
-};
+use hyper::{Body, Client, Request, Response, StatusCode};
 use log::debug;
 use routerify::prelude::*;
 use routerify::{Middleware, RequestInfo, Router};
@@ -78,9 +75,12 @@ async fn error_handler(err: routerify::RouteError, _: RequestInfo) -> Response<B
 // Create a `Router<Body, Infallible>` for response body type `hyper::Body`
 // and for handler error type `Infallible`.
 pub fn router() -> Router<Body, anyhow::Error> {
-    let https = hyper_rustls::HttpsConnector::with_native_roots();
-    let client: Client<hyper_rustls::HttpsConnector<HttpConnector<GaiResolver>>, hyper::Body> =
-        Client::builder().build(https);
+    let https = hyper_rustls::HttpsConnectorBuilder::new()
+        .with_native_roots()
+        .https_or_http()
+        .enable_http1()
+        .build();
+    let client: Client<_, hyper::Body> = Client::builder().build(https);
     let client = Arc::new(client);
 
     // Create a router and specify the logger middleware and the handlers.

@@ -1,7 +1,12 @@
+
+
+
+
 type Me {
 	username: String!
 	email: String!
 }
+
 type Query {
 	"""
 	A simple resolver that returns a UUID V4.
@@ -12,9 +17,12 @@ type Query {
 	"""
 	me: Me!
 }
+
+
 type Uuid {
 	uuid: String!
 }
+
 schema {
 	query: Query
 }
