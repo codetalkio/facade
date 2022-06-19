@@ -9,5 +9,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # Switch to nightly and setup common cargo utilities.
 RUN rustup default nightly \
-  && cargo install cargo-binstall \
+  # linux x86_64: wget https://github.com/ryankurte/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz
+  # macos M1: wget https://github.com/ryankurte/cargo-binstall/releases/latest/download/cargo-binstall-aarch64-apple-darwin.zip
+  && wget https://github.com/ryankurte/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz \
+  && tar -xf cargo-binstall-x86_64-unknown-linux-musl.tgz \
+  && mv cargo-binstall /usr/local/bin/cargo-binstall \
   && cargo binstall cargo-watch
