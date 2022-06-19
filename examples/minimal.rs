@@ -1,12 +1,14 @@
+use anyhow::*;
 use facade::*;
 
 #[tokio::main]
-async fn main() -> Result<(), ()> {
+async fn main() -> Result<(), anyhow::Error> {
     // Set up logging
     fern::Dispatch::new()
         .level(log::LevelFilter::Debug)
         .chain(std::io::stdout())
-        .apply();
+        .apply()
+        .context("Setting up logging service")?;
 
     // Set up where Facade should proxy and which paths it should overwrite.
     // let server = Facade::builder()
