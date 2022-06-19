@@ -37,6 +37,7 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "rustc --version",
+  // Run this command everytime the container is being prebuilt.
   "updateContentCommand": "cargo build",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
