@@ -25,11 +25,10 @@
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
     "vadimcn.vscode-lldb",
-    "mutantdino.resourcemonitor",
+    "anwar.resourcemonitor",
     "matklad.rust-analyzer",
     "tamasfe.even-better-toml",
-    "serayuzgur.crates",
-    "ms-azuretools.vscode-docker"
+    "serayuzgur.crates"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
